@@ -43,6 +43,8 @@ print(str1)
 change(str1)
 print("after change and outside " + str1)
 
+# the below is treated like a long string - not assigned to any variable - hence its not greyed as comment
+# which means multi line comments cannot come in between the program ???
 """
 [1, 2, 3, 4, 5]
 3
