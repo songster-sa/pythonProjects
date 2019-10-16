@@ -6,9 +6,10 @@ Test if we can define and cal function anywhere? or we have to define before cal
 no overloading concept present .... eg if u repeat name with more params... it will work based on the order of definition
 and crash if method call not matching the signature
 
-@@@@@@@@@ string is pass by value - changes to it inside method does not reflect outside
-@@@@@@@@@ list is pass by ref - like object - changes to it made inside method are reflected outside
-
+@@@@@@@@@ string is pass by value - changes made to it inside the method does not reflect outside
+@@@@@@@@@ list is pass by ref - like object - changes made to it inside the method are reflected outside
+need to understand the internal workings - may be its just like java - and objects store their memory address
+- then everything is pass my value just like java
 """
 
 exList = [1, 2, 3, 4, 5]
@@ -41,3 +42,19 @@ def change(st):
 print(str1)
 change(str1)
 print("after change and outside " + str1)
+
+"""
+[1, 2, 3, 4, 5]
+3
+4
+5
+6
+7
+['n', 'e', 'w']
+after change and outside [3, 4, 5, 6, 7]
+-------------------------------------------------------
+something
+SOMETHINGbb
+new
+after change and outside something
+"""
