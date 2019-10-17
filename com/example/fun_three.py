@@ -31,7 +31,8 @@ class Car:
         # print("Car color is "+ Car.color) # AttributeError: class Car has no attribute 'color'
 
     @classmethod
-    def make_sound(cls, change_wheels=10):  # i can have the self as parameter here but will have to pass it explicitly every time
+    def make_sound(cls,
+                   change_wheels=10):  # i can have the self as parameter here but will have to pass it explicitly every time
         print("car always makes vroom vroom sound")
         cls.wheels = change_wheels;
         # cls.check_wheels() # complains abt missing self parameter
@@ -39,44 +40,45 @@ class Car:
         # print(f"inside call method {self.wheels} {self.color}")
 
 
-car = Car()
-car.check_wheels()
-car.print_color()
-car.make_sound()
-print("-------------------------------")
-car2 = Car("red")
-car2.wheels = 6
-car2.check_wheels()
-car2.print_color()
-car2.make_sound()
-print("-------------------------------")
-# Car.start() # TypeError: unbound method
-# Car.print_color() # TypeError: unbound method
-Car.wheels = 0
-Car.color = "white"  # ignored? nothing happened? cannot add attribute like this?
-Car.make_sound(3)
+if __name__ == "__main__":
+    car = Car()
+    car.check_wheels()
+    car.print_color()
+    car.make_sound()
+    print("-------------------------------")
+    car2 = Car("red")
+    car2.wheels = 6
+    car2.check_wheels()
+    car2.print_color()
+    car2.make_sound()
+    print("-------------------------------")
+    # Car.start() # TypeError: unbound method
+    # Car.print_color() # TypeError: unbound method
+    Car.wheels = 0
+    Car.color = "white"  # ignored? nothing happened? cannot add attribute like this?
+    Car.make_sound(3)
 
-car.check_wheels()  # changes to the class variable wheels is immediately reflected - without re-instantiating the object
-car.print_color()
-car2.check_wheels()
-car2.print_color()
+    car.check_wheels()  # changes to the class variable wheels is immediately reflected - without re-instantiating the object
+    car.print_color()
+    car2.check_wheels()
+    car2.print_color()
 
-"""
-car wheels is 4
-self wheels is 4
-self color is blue
-car always makes vroom vroom sound
--------------------------------
-car wheels is 10
-self wheels is 6
-self color is red
-car always makes vroom vroom sound
--------------------------------
-car always makes vroom vroom sound
-car wheels is 3
-self wheels is 3
-self color is blue
-car wheels is 3
-self wheels is 6
-self color is red
-"""
+    """
+    car wheels is 4
+    self wheels is 4
+    self color is blue
+    car always makes vroom vroom sound
+    -------------------------------
+    car wheels is 10
+    self wheels is 6
+    self color is red
+    car always makes vroom vroom sound
+    -------------------------------
+    car always makes vroom vroom sound
+    car wheels is 3
+    self wheels is 3
+    self color is blue
+    car wheels is 3
+    self wheels is 6
+    self color is red
+    """
